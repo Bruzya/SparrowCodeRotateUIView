@@ -9,14 +9,11 @@ import UIKit
 
 final class BoxView: UIView {
     
-    //MARK: - Properties
-    
-    
-    //MARK: - Initialize
+    //MARK: - Lifecycle
     override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         
-        setupViews()
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -24,7 +21,8 @@ final class BoxView: UIView {
     }
     
     //MARK: - Methods
-    private func setupViews() {
-        
+    private func configure() {
+        backgroundColor = .blue
+        layer.cornerRadius = 20
     }
 }
