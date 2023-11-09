@@ -10,7 +10,6 @@ import UIKit
 final class ViewController: UIViewController {
     
     //MARK: - Properties
-    
     var animator: UIViewPropertyAnimator!
     
     //MARK: - UI
@@ -28,7 +27,10 @@ final class ViewController: UIViewController {
         view.backgroundColor = .white
 
         view.addSubview(boxView)
+        boxView.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        
         view.addSubview(boxSlider)
+        boxSlider.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         boxSlider.addTarget(self, action: #selector(didSlide), for: .touchDragInside)
         boxSlider.addTarget(self, action: #selector(didTap), for: .touchUpInside)
         boxSlider.minimumValue = 0
@@ -44,7 +46,7 @@ final class ViewController: UIViewController {
     @objc private func didSlide(_ sender: UISlider) {
         animator.fractionComplete = CGFloat(sender.value) / 390
         animator.pauseAnimation()
-        
+        animator.pausesOnCompletion = true
     }
     
     @objc private func didTap(_ sender: UISlider) {
